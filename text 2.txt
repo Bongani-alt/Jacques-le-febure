@@ -1,0 +1,20 @@
+document.getElementById('comment-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const username = document.getElementById('username').value.trim();
+  const comment = document.getElementById('comment').value.trim();
+
+  if (username && comment) {
+    const commentList = document.getElementById('comments-list');
+    
+    const newComment = document.createElement('div');
+    newComment.classList.add('comment');
+    newComment.innerHTML = `<strong>${username}</strong>: ${comment}`;
+    
+    commentList.appendChild(newComment);
+
+    // Clear form inputs
+    document.getElementById('username').value = '';
+    document.getElementById('comment').value = '';
+  }
+});
